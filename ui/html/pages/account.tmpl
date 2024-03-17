@@ -1,0 +1,30 @@
+{{define "title"}}Account{{end}}
+{{define "main"}}
+    <h2>Your Account</h2>
+    {{if .User}}
+        <table>
+            <tr>
+                <th>Name</th>
+                <td>{{.User.Name}}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{.User.Email}}</td>
+            </tr>
+            <tr>
+                <th>Joined</th>
+                <td>{{humanDate .User.Created}}</td>
+            </tr>
+            <tr>
+            <th>Password</th>
+            <td>
+                <form action='/account/password/update' method='GET' novalidate> 
+                    <button>Change password</button>
+                </form>
+            </td>
+            </tr>
+        </table>
+    {{else}}
+        <p>There's nothing to see here... yet!</p>
+    {{end}}
+{{end}}

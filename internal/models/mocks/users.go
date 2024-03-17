@@ -1,6 +1,8 @@
 package mocks
 
 import (
+	"time"
+
 	"github.com/bigssbyy/snippetbox/internal/models"
 )
 
@@ -27,4 +29,40 @@ func (m *UserModel) Exists(id int) (bool, error) {
 	default:
 		return false, nil
 	}
+}
+
+func (m *UserModel) Get(id int) (models.User, error) {
+
+	var user models.User
+
+	user.ID = 1
+	user.Name = "Carol Smith"
+	user.Email = "carol@example.com"
+	user.Created = time.Now().UTC()
+
+	return user, nil
+}
+
+func (m *UserModel) Update(id int, newPassword string) error {
+
+	var user models.User
+
+	user.ID = 1
+	user.Name = "Carol Smith"
+	user.Email = "carol@example.com"
+	user.Created = time.Now().UTC()
+
+	return nil
+}
+
+func (m *UserModel) ValidatePassword(id int, newPassword string) error {
+
+	var user models.User
+
+	user.ID = 1
+	user.Name = "Carol Smith"
+	user.Email = "carol@example.com"
+	user.Created = time.Now().UTC()
+
+	return nil
 }
